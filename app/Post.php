@@ -8,4 +8,9 @@ class Post extends Model
 {
     public $table = 'post';
     protected $fillable = ['title','content'];
+
+    public function task()
+    {
+    	return $this->hasMany(Task::class);
+    }
 }

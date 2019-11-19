@@ -7,6 +7,15 @@
 
 <p>{{$post->content}}</p>
 
+<ul>
+	@foreach($post->task as $task)
+
+	<li>{{$task->body}}</li>
+	
+    @endforeach
+</ul>
+
+
 <a href="{{url('/posts/'.$post->id.'/edit')}}" class="btn btn-primary">Edit</a>
 <br><br>
 <form action="{{url('/posts/'.$post->id)}}" method="post">
