@@ -31,3 +31,8 @@ Route::resource('/projects','ProjectController');
 
 Route::resource('/posts','PostsController');
 
+Route::patch('/tasks/{task}','PostTaskController@update');
+
+Route::get('/posts/{post}/task','PostTaskController@create');
+
+Route::post('/posts/{post}/task','PostTaskController@store');
