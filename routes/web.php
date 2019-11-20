@@ -41,3 +41,6 @@ Route::get('/posts/{post}/task','PostTaskController@create');
 Route::post('/posts/{post}/task','PostTaskController@store');
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
