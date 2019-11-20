@@ -1,5 +1,7 @@
 <?php
 
+// use App\Example;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +15,8 @@
 
 Route::get('/', function () {
 
-	$tasks = ['task1','task2','task3','<script>alert("Warning");</script>'];
+//   dd(app('foo'));
+	$tasks = ['task1','task2','task3'];
 
     return view('welcome',compact('tasks'));
 });
@@ -36,3 +39,5 @@ Route::patch('/tasks/{task}','PostTaskController@update');
 Route::get('/posts/{post}/task','PostTaskController@create');
 
 Route::post('/posts/{post}/task','PostTaskController@store');
+
+

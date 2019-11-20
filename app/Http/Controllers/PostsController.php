@@ -27,14 +27,14 @@ class PostsController extends Controller
           'content' => 'required | min:10 |  max:200'
 
         ]);
-     
+
         Post::create
             ([
 
             'title' => request('title'),
             'content' => request('content')
             ]);
-            
+
 
 
         return redirect('/posts');
@@ -43,7 +43,7 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
- 
+
 
        return view('posts.show',compact('post'));
     }
@@ -60,7 +60,7 @@ class PostsController extends Controller
 
        $post->update(request(['title','content']));
 
-       
+
        return redirect('/posts');
     }
 

@@ -39,7 +39,7 @@ class PostTaskController extends Controller
             'body' => request('body')
             ]);
 
-            return redirect('/posts');
+            return redirect('/posts/'.$post->id);
          
       
     }
