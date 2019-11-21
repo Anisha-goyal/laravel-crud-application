@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Mail\PostCreated;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -25,19 +26,23 @@ class PostsController extends Controller
 
         $user_id = auth()->id();
 
-        $data = request()->validate([
+        request()->validate([
           'title' => 'required | min:5 | max:15',
           'content' => 'required | min:10 |  max:200'
 
         ]);
 
-        Post::create
+        $post = Post::create
             ([
 
             'title' => request('title'),
             'content' => request('content'),
             'user_id' => $user_id,
             ]);
+
+        \Mail::to($post->user->email)->send(
+            new PostCreated($post)
+        );
 
 
         return redirect('/posts');
