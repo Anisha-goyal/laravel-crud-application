@@ -1,7 +1,7 @@
 @extends('layouts.form_layout')
+@extends('layouts.app')
 
-
-@section('content')
+@section('main')
 
 <h2 class="text-center">Edit Post</h2>
 <br>

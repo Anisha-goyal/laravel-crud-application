@@ -1,6 +1,7 @@
 @extends('layouts.form_layout')
+@extends('layouts.app')
 
-@section('content')
+@section('main')
 
 
 @if($errors->any())

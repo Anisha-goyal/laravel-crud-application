@@ -1,6 +1,7 @@
 @extends('layouts.form_layout')
+@extends('layouts.app')
 
-@section('content')
+@section('main')
 <h1>Create a Post</h1>
 <br>
 
@@ -40,6 +41,7 @@
     </div>
 
 </div>
+
 <br>
 <button type="submit" class="btn btn-primary">Create Post</button>
 </form>

@@ -16,9 +16,9 @@
 Route::get('/', function () {
 
 //   dd(app('foo'));
-	$tasks = ['task1','task2','task3'];
+	// $tasks = ['task1','task2','task3'];
 
-    return view('welcome',compact('tasks'));
+    return view('welcome');
 });
 
 Route::get('/about',function(){
@@ -30,9 +30,7 @@ Route::get('/contact',function(){
 });
 
 
-Route::resource('/projects','ProjectController');
-
-Route::resource('/posts','PostsController');
+Route::resource('/posts','PostsController')->middleware('auth');
 
 Route::patch('/tasks/{task}','PostTaskController@update');
 

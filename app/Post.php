@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public $table = 'post';
-    protected $fillable = ['title','content'];
+
+    protected $fillable = ['title','content','user_id'];
 
     public function task()
     {

@@ -8,13 +8,11 @@ Welcome
 
 @section('content')
 
-<h1>This is an welcome page.</h1>
+<div class="text-center">
+<h1>Welcome</h1>
 
-@foreach($tasks as $task)
-
-<li>{{$task}}</li>
-
-@endforeach
+<h4><a href="{{url('/posts')}}">See your posts here</a></h4>
+</div>
 
 @endsection
 

@@ -10,7 +10,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::where('user_id',auth()->id())->get();
         return view('posts.index',compact('posts'));
     }
 
@@ -22,7 +22,10 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        request()->validate([
+
+        $user_id = auth()->id();
+
+        $data = request()->validate([
           'title' => 'required | min:5 | max:15',
           'content' => 'required | min:10 |  max:200'
 
@@ -32,9 +35,9 @@ class PostsController extends Controller
             ([
 
             'title' => request('title'),
-            'content' => request('content')
+            'content' => request('content'),
+            'user_id' => $user_id,
             ]);
-
 
 
         return redirect('/posts');
@@ -43,6 +46,8 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
+     // To prevent the user from viewing other users' posts
+       abort_if(auth()->id() !== $post->user_id,403);
 
 
        return view('posts.show',compact('post'));
